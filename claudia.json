@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "survivor-server-executor",
+    "name": "survivor-server",
+    "region": "us-east-1"
+  },
+  "api": {
+    "id": "943e6td2u2",
+    "module": "app"
+  }
+}

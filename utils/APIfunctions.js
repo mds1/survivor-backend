@@ -41,19 +41,24 @@ module.exports = {
 
     // Define array to hold winning integers
     let winningIntegers = [];
+
     // Get mapping from teams to integers
     teamMapping = this.getTeams();
+
     // Loop through winners and convert string to corresponding integer
     for (let i = 0; i < winners.length; i++) {
       const team = winners[i]
       const int = teamMapping[team]
       winningIntegers.push(int)
     }
+
+    // Return the integers
     return winningIntegers
   },
 
 
   getTeams: function () {
+    // Return mapping of teams to their integers
     return {
       'ARI': 0,
       'ATL': 1,
@@ -72,7 +77,7 @@ module.exports = {
       'JAX': 14,
       'KC': 15,
       'LAC': 16, // LA chargers
-      'LA': 17, // LA rams (not LAR, since MySportsFeed uses LA)
+      'LA': 17,  // LA rams (not LAR, since MySportsFeed uses LA)
       'MIA': 18,
       'MIN': 19,
       'NE': 20,
