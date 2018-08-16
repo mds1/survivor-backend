@@ -1,7 +1,7 @@
 // WORK IN PROGRESS
 
 // Import web3
-import web3 from './web3'
+import web3 from './web3';
 
 // The file below will be output after compiling
 import survivor from './Survivor.json';
@@ -16,10 +16,10 @@ const instance = new web3.eth.Contract(
 // Functions to get and manipulate contract data
 module.exports = {
 
-  getPlayers: function () {
+  getPlayers() {
   }, // end getPlayers
 
-  getPlayersPicks: function () {
-  } // end getPlayersPicks
+  getPlayersPicks() {
+  }, // end getPlayersPicks
 
-}
+};

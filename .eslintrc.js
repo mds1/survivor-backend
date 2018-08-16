@@ -7,12 +7,8 @@ module.exports = {
   env: {
     node: true
   },
-  // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-  // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-  extends: ['plugin:vue/essential', 'airbnb-base'],
-  // required to lint *.vue files
+  extends: ['airbnb-base'],
   plugins: [
-    'vue'
   ],
   globals: {
     'ga': true, // Google Analytics
@@ -38,5 +34,7 @@ module.exports = {
     // custom rules
     'no-plusplus': 0,
     'max-len': 0,
+
+    'prefer-destructuring': 0
   }
 }
