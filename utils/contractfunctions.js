@@ -10,7 +10,7 @@ import survivor from './Survivor.json';
 const instance = new web3.eth.Contract(
   survivor.abi,
   // *REPLACE* this address with the address of deployed contract
-  '0x0000000000000000000000000000000000000000',
+  '0xf3020cb3070340becc8ca51d7ef33f7930d9edf3',
 );
 
 // Functions to get and manipulate contract data
