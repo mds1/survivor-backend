@@ -29,9 +29,13 @@ module.exports = {
         const homeScore = game.score.homeScoreTotal;
         const awayScore = game.score.awayScoreTotal;
         /* eslint-disable-next-line no-unused-expressions */
-        homeScore > awayScore ? winners.push(homeTeam) : winners.push(awayTeam);
-      }
-    }
+        if (homeScore > awayScore) {
+          winners.push(homeTeam);
+        } else {
+          winners.push(awayTeam);
+        } // end if
+      } // end for each game
+    } // end if status === 200
 
     return winners;
   }, // end extractWinningTeams

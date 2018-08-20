@@ -1,4 +1,4 @@
-'use strict'
+
 
 // Tutorials used for deployment
 //   - For normal serverless deployment:
@@ -7,12 +7,12 @@
 //     https://claudiajs.com/tutorials/hello-world-api-gateway.html
 
 // Get required packages
-const express = require('express')
+const express = require('express');
 const btoa = require('btoa');
 const axios = require('axios');
 // const ApiBuilder = require('claudia-api-builder');
 
-const app =  express()
+const app = express();
 // const api = new ApiBuilder();
 
 // Import helper functions
@@ -22,7 +22,7 @@ const contractfuncs = require('./utils/contractfunctions');
 // Define routes
 app.get('/', (req, res) => {
   // res.json({"message": "Nothing here :("})
-  res.send({ "message": process.env.infuraAPIKey })
+  res.send({ message: 'Nothing here :(' });
 });
 
 app.get('/api/getresults', async (req, res) => {
@@ -33,9 +33,6 @@ app.get('/api/getresults', async (req, res) => {
   const week = 10;
   const year = 2017;
   const query = `https://api.mysportsfeeds.com/v2.0/pull/nfl/${year}-regular/week/${week}/games.json`;
-
-  const players = await contractfuncs.getPlayers();
-  // const players = 'sdfasdfasdfsafd'
 
   // Get MySportsFeed API key from the query
   // const apikey = req.queryString.apikey; // use this with Claudia API builder
@@ -52,16 +49,25 @@ app.get('/api/getresults', async (req, res) => {
   });
 
   // Extract winning teams from response
-  const winners = apifuncs.extractWinningTeams(result);
+  const winningTeams = apifuncs.extractWinningTeams(result);
 
   // Convert winning teams to their corresponding integers
-  const winningIntegers = apifuncs.getWinningIntegers(winners);
+  const winningIntegers = apifuncs.getWinningIntegers(winningTeams);
+
+  // Get winning players for this week
+  const players = await contractfuncs.getPlayers();
+  let picks = await contractfuncs.getPicks(players);
+  picks = picks.map(x => parseInt(x, 10));
+  const winningPlayers = contractfuncs.getWinningPlayers(players, picks, winningIntegers);
 
   // Send response
   res.send({
-    "winners": winners,
-    "players": players
-  })
+    players,
+    picks,
+    winningTeams,
+    winningIntegers,
+    remainingPlayers: winningPlayers, // the new set of remaining players
+  });
 });
 
 module.exports = app;

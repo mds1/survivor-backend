@@ -7,8 +7,7 @@ Note: mnemonic phrase for existing MetaMask account is in Settings -> Reveal See
 BEGIN Sample config.js file:
 --------------------------------------------------------------------------------
 const keys = {
-  INFURA_API_KEY: 'PasteYourKeyHere',
-  mnemonic: 'Paste your seed phrase here',
+  infuraAPIKey: 'PasteYourKeyHere',
 }
 
 module.exports = keys
@@ -19,7 +18,8 @@ END Sample config.js file:
 const Web3 = require('web3');
 
 // Import keys
-const infuraAPIKey = process.env.infuraAPIKey;
+// const infuraAPIKey = process.env.infuraAPIKey;
+const infuraAPIKey = require('../config').infuraAPIKey;
 
 // *REPLACE* -- make sure network matches the string in requiredNetwork() in functions.js
 // Get network to use
