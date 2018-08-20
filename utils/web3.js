@@ -16,23 +16,20 @@ module.exports = keys
 END Sample config.js file:
 */
 
-import Web3 from 'web3';
+const Web3 = require('web3');
 
-// Import Infura key
-const keys = require('../config');
-
-const { INFURA_API_KEY } = keys;
+// Import keys
+const infuraAPIKey = process.env.infuraAPIKey;
 
 // *REPLACE* -- make sure network matches the string in requiredNetwork() in functions.js
-// TODO: replace this with an import of the requiredNetwork function
 // Get network to use
 const network = 'rinkeby';
 
 // Code is running on the server *OR* the user is not running MetaMask
 // set up our own provider to connect to network through Infura
-const provider = new Web3.providers.HttpProvider(`https://${network}.infura.io/${INFURA_API_KEY}`);
+const provider = new Web3.providers.HttpProvider(`https://${network}.infura.io/v3/${infuraAPIKey}`);
 const web3 = new Web3(provider);
 
 
 // export the web3 instance
-export default web3;
+module.exports = { web3 };

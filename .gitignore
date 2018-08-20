@@ -30,4 +30,5 @@ webpack_config/server.crt
 webpack_config/server.csr
 
 # File with API keys
+config.js
 config.txt

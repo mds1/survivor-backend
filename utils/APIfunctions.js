@@ -1,3 +1,4 @@
+
 module.exports = {
 
   extractWinningTeams(result) {
