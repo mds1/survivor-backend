@@ -66,6 +66,7 @@ app.get('/api/getresults', async (req, res) => {
 
   // Send response
   res.json({
+    status: 200,
     players,
     picks,
     winningTeams,
