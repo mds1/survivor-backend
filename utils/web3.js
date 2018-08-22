@@ -21,8 +21,8 @@ END Sample config.js file:
 const Web3 = require('web3');
 
 // Import keys
-// const infuraAPIKey = process.env.infuraAPIKey;
-const infuraAPIKey = require('../config').infuraAPIKey;
+const infuraAPIKey = process.env.infuraAPIKey;
+// const infuraAPIKey = require('../config').infuraAPIKey;
 
 // *REPLACE* -- make sure network matches the string in requiredNetwork() in functions.js
 // Get network to use
