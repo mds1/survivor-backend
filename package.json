@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "lint": "eslint --ext .js,.vue src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,8 +14,6 @@
     "aws-serverless-express": "^3.3.5",
     "axios": "^0.18.0",
     "btoa": "^1.2.1",
-    "claudia": "^5.1.1",
-    "claudia-api-builder": "^4.1.1",
     "express": "^4.16.3",
     "web3": "^1.0.0-beta.35"
   },
@@ -30,3 +29,4 @@
     "node": "8.10.0"
   }
 }
+git

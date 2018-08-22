@@ -7,6 +7,9 @@
 //   - For API deployment
 //     https://claudiajs.com/tutorials/hello-world-api-gateway.html
 
+// Define port
+const port = process.env.PORT || 3000;
+
 // Get required packages
 const express = require('express');
 const btoa = require('btoa');
@@ -71,4 +74,5 @@ app.get('/api/getresults', async (req, res) => {
   });
 });
 
-module.exports = app;
+app.listen(port, () =>
+  console.log(`Server is listening on port ${port}.`));
