@@ -1,3 +1,6 @@
+/* eslint-disable-next-line */
+'use strict'
+
 // When using Claudia, app.js is no long valid when run locally due to changes
 // made for AWS deployment. This file creates a local version that we can run
 // locally using "node app.local.js"

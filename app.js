@@ -1,4 +1,5 @@
-
+/* eslint-disable-next-line */
+'use strict'
 
 // Tutorials used for deployment
 //   - For normal serverless deployment:
@@ -61,7 +62,7 @@ app.get('/api/getresults', async (req, res) => {
   const winningPlayers = contractfuncs.getWinningPlayers(players, picks, winningIntegers);
 
   // Send response
-  res.send({
+  res.json({
     players,
     picks,
     winningTeams,

@@ -25,5 +25,8 @@
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-import": "^2.14.0"
+  },
+  "engines": {
+    "node": "8.10.0"
   }
 }

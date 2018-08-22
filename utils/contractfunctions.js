@@ -1,3 +1,6 @@
+/* eslint-disable-next-line */
+'use strict'
+
 // WORK IN PROGRESS
 
 // Import web3

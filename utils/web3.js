@@ -1,3 +1,6 @@
+/* eslint-disable-next-line */
+'use strict'
+
 /*
 Create file called config.js like the sample below. This file should contain the
 Infura API key, mnemonic phrase, and any other API keys needed
