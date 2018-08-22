@@ -1,6 +1,10 @@
 /* eslint-disable-next-line */
 'use strict'
 
+const moment = require('moment');
+
+moment().format();
+
 module.exports = {
 
   extractWinningTeams(result) {
@@ -102,4 +106,25 @@ module.exports = {
       WAS: 32,
     };
   }, // end getTeams
+
+
+  getCurrentWeek() {
+    // Get current date
+    const currentDate = moment();
+
+    // Define date by which all week 1 games are over (2018-09-11, 4:00 AM EST)
+    // Therefore, any time before this date is week 1
+    const week1GamesEnd = moment.unix(1536652800); // seconds since Unix Epoch
+
+    // Loop through and determine the week (i+1 gives current week)
+    for (let i = 0; i < 17; i++) {
+      const thisWeeksGamesEndDate = week1GamesEnd.add(i, 'weeks');
+      if (currentDate < thisWeeksGamesEndDate) {
+        // If this week's games have not ended, return that week number
+        return i + 1;
+      }
+    } // end for each week
+
+    return new Error('Something went wrong in the getCurrentWeek function');
+  },
 };

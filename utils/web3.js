@@ -21,10 +21,17 @@ END Sample config.js file:
 const Web3 = require('web3');
 
 // Import keys
-const infuraAPIKey = process.env.infuraAPIKey;
-// const infuraAPIKey = require('../config').infuraAPIKey;
+let infuraAPIKey;
+if (typeof process.env.infuraAPIKey === 'undefined') {
+  // Running locally, so read from config file (TODO: set env vars locally)
+  /* eslint-disable-next-line global-require */
+  infuraAPIKey = require('../config').infuraAPIKey;
+} else {
+  // Running on server, read from environment variable
+  infuraAPIKey = process.env.infuraAPIKey;
+}
 
-// *REPLACE* -- make sure network matches the string in requiredNetwork() in functions.js
+// *REPLACE* -- make sure network is properly set
 // Get network to use
 const network = 'rinkeby';
 
