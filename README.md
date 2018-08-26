@@ -1,6 +1,7 @@
-Designed for the ConsenSys Academy 2018 Developer Program Final Project. The frontend code can be found [here](https://github.com/mds1/survivor-frontend)
+NFL Survivor Decentralized Application, backend. The frontend code can be found [here](https://github.com/mds1/survivor-frontend)
 
 # NFL Survivor Dapp
+## API Overview
 This is the server side of an NFL Survivor dapp. This code is deployed on [AWS Lambda](https://aws.amazon.com/lambda/) to act as an API for obtaining weekly game results. The server fits into the dapp architecture as follows:
 1. `Survivor.sol` uses [Oraclize](http://www.oraclize.it/) to reach out to this API
 2. The API performs the following steps:
@@ -10,6 +11,9 @@ This is the server side of an NFL Survivor dapp. This code is deployed on [AWS L
     4. Send a list of the surving players back to the contract
 3. The API returns a list of players who are still alive
 
+See the frontend code for more information about the application and its architecture.
+
+## Sample Response
 Sample API response (teams/integers are sorted by the order returned from the MySportsFeed API):
 
 ```json
