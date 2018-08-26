@@ -14,7 +14,7 @@ const Survivor = require('../contracts/Survivor.json');
 const survivor = new web3.eth.Contract(
   Survivor.abi,
   // *REPLACE* this address with the address of deployed contract
-  '0xf957151369a444c6bce79b29e0ff8c9f9950a24a',
+  '0x976595a9694fba7edc3e4af5dcaf26292e1bac45',
 );
 
 // Functions to get and manipulate contract data
@@ -23,7 +23,6 @@ module.exports = {
   async getPlayers() {
     // get list of players
     const players = await survivor.methods.getRemainingPlayers().call();
-    // const players = await web3.eth.getBalance('0x6d29803c2AcDdC6b9B1FF44B2226FFD70817d276');
     return players;
   }, // end getPlayers
 
