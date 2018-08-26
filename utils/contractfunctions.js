@@ -14,7 +14,7 @@ const Survivor = require('../contracts/Survivor.json');
 const survivor = new web3.eth.Contract(
   Survivor.abi,
   // *REPLACE* this address with the address of deployed contract
-  '0x66acd4550da9658a77c94ab6b255488588ad8dce',
+  '0xf957151369a444c6bce79b29e0ff8c9f9950a24a',
 );
 
 // Functions to get and manipulate contract data
