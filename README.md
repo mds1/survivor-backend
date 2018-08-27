@@ -2,7 +2,7 @@ NFL Survivor Decentralized Application, backend. The frontend code can be found 
 
 # NFL Survivor Dapp
 ## API Overview
-This is the server side of an NFL Survivor dapp. This code is deployed on [AWS Lambda](https://aws.amazon.com/lambda/) to act as an API for obtaining weekly game results. The server fits into the dapp architecture as follows:
+This is the server side of an NFL Survivor dapp. This code is deployed on Heroku to act as an API for obtaining weekly game results. The server fits into the dapp architecture as follows:
 1. `Survivor.sol` uses [Oraclize](http://www.oraclize.it/) to reach out to this API
 2. The API performs the following steps:
     1. Reach out to MySportsFeed's API to get a list of NFL winners from that week
