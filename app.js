@@ -87,6 +87,8 @@ app.get('/api/getresults', async (req, res) => {
     status: 200,
     players,
     picks,
+    season: year,
+    week,
     winningTeams,
     winningIntegers,
     remainingPlayers: winningPlayers, // the new set of remaining players
