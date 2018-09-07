@@ -27,6 +27,8 @@ Sample API response (teams/integers are sorted by the order returned from the My
         23,
         21
     ],
+    "season": 2018,
+    "week": 1,
     "winningTeams": [
         "SEA",
         "TEN",
