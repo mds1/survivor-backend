@@ -14,7 +14,7 @@ const Survivor = require('../contracts/Survivor.json');
 const survivor = new web3.eth.Contract(
   Survivor.abi,
   // *REPLACE* this address with the address of deployed contract
-  '0x976595a9694fba7edc3e4af5dcaf26292e1bac45',
+  '0x46872515d03ec3eba6c1fd8526f97319949a5633',
 );
 
 // Functions to get and manipulate contract data
@@ -49,8 +49,8 @@ module.exports = {
 
   getWinningPlayers(players, picks, winningIntegers) {
     // players -- array of players who are remaining
-    // picks -- array of picks for each player in players
-    // winningIntegers -- array of teams that won this week
+    // picks -- array of picks for each player in players, as integers
+    // winningIntegers -- array of teams that won this week, as integers
 
     // define array to hold all winning players' addresses
     const winners = [];

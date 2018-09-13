@@ -15,6 +15,7 @@ module.exports = {
 
     // Extract winners
     if (result.status === 200) {
+      // Get list of games from API call
       const games = result.data.games;
 
       // Loop through each game
@@ -23,11 +24,12 @@ module.exports = {
 
         // Make sure game is completed
         if (game.schedule.playedStatus.toLowerCase() !== 'COMPLETED'.toLowerCase()) {
-          // throw error if game was not completed
-          throw new Error('All games for this week must be completed to call this method');
+          // let us know if all games are not completed, and do not return the winners
+          // TODO: this currently cannot handle postponed games
+          return 'All games for this week must be completed to call this method';
         }
 
-        // Get the two teams that played
+        // Get the two teams that played`
         const homeTeam = game.schedule.homeTeam.abbreviation;
         const awayTeam = game.schedule.awayTeam.abbreviation;
 
@@ -112,15 +114,16 @@ module.exports = {
     // Get current date
     const currentDate = moment();
 
-    // Define date by which all week 1 games are over (2018-09-11, 4:00 AM EST)
+    // Define date when week 2 games start (2018-09-06, 8:00 PM EST)
     // Therefore, any time before this date is week 1
-    const week1GamesEnd = moment.unix(1536652800); // seconds since Unix Epoch
+    const week1GameStart = moment.unix(1536278400);
+    const week2GameStart = week1GameStart.add(1, 'weeks');
 
     // Loop through and determine the week (i+1 gives current week)
     for (let i = 0; i < 17; i++) {
-      const thisWeeksGamesEndDate = week1GamesEnd.add(i, 'weeks');
-      if (currentDate < thisWeeksGamesEndDate) {
-        // If this week's games have not ended, return that week number
+      const thisWeeksGamesStartDate = week2GameStart.add(i, 'weeks');
+      if (currentDate < thisWeeksGamesStartDate) {
+        // If this week's games have ended, return that week number
         return i + 1;
       }
     } // end for each week

@@ -73,25 +73,38 @@ app.get('/api/getresults', async (req, res) => {
   // Extract winning teams from response
   const winningTeams = apifuncs.extractWinningTeams(result);
 
+  // Return if games are not yet completed
+  if (typeof winningTeams === 'string') {
+    return res.json({
+      status: 403, // forbidden to call at this time
+      msg: winningTeams, // contains message that games are not complete
+      mySportsFeedsResult: result.data, // the MySportsFeeds API result
+    });
+  }
+
   // Convert winning teams to their corresponding integers
   const winningIntegers = apifuncs.getWinningIntegers(winningTeams);
 
-  // Get winning players for this week
+  // Get current remaining players from contract
   const players = await contractfuncs.getPlayers();
+  // Get the pick of each remaining player
   let picks = await contractfuncs.getPicks(players);
+  // Convert their picks to integers
   picks = picks.map(x => parseInt(x, 10));
+  // Determine new set of remaining players
   const winningPlayers = contractfuncs.getWinningPlayers(players, picks, winningIntegers);
 
   // Send response
   res.json({
     status: 200,
-    players,
-    picks,
-    season: year,
-    week,
-    winningTeams,
-    winningIntegers,
+    players, // players who were alive
+    picks, // each players pics
+    season: year, // current NFL season
+    week, // current NFL week
+    winningTeams, // winning NFL teams this weak
+    winningIntegers, // winning NFL teams this week, represented as integers
     remainingPlayers: winningPlayers, // the new set of remaining players
+    mySportsFeedsResult: result.data, // the MySportsFeeds API result
   });
 });
 
