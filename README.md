@@ -30,44 +30,54 @@ Sample API response (teams/integers are sorted by the order returned from the My
     "season": 2018,
     "week": 1,
     "winningTeams": [
-        "SEA",
-        "TEN",
-        "MIN",
+        "PHI",
+        "MIA",
         "TB",
-        "NO",
-        "JAX",
+        "MIN",
         "PIT",
-        "DET",
-        "GB",
-        "LA",
-        "ATL",
-        "SF",
+        "JAX",
         "NE",
-        "CAR"
+        "CIN",
+        "BAL",
+        "KC",
+        "WAS",
+        "DEN",
+        "CAR",
+        "GB",
+        "NYJ",
+        "LA"
     ],
     "winningIntegers": [
-        28,
-        31,
-        20,
+        26,
+        19,
         30,
-        22,
-        15,
+        20,
         27,
-        11,
-        12,
-        18,
-        2,
-        29,
+        15,
         21,
-        5
+        7,
+        3,
+        16,
+        32,
+        10,
+        5,
+        12,
+        24,
+        18
     ],
     "remainingPlayers": [
         "0x60b85c9A7b2947D884737A1b00b9ec9810D26663"
-    ]
+    ],
+    "mySportsFeedsResult": {
+        "lastUpdatedOn": "2018-09-13T20:31:04.355Z",
+        "games": [...],
+        "teamsWithBytes": [],
+        "references": {...}
+    }
 }
 ```
 
 ## Acknowledgements
 * [Claudia](https://claudiajs.com/) made it super simple to create an API and deploy it to AWS. I've never done that prior to this project and Claudia made that process much more approachable
-* Due to some issues with Scrypt/Web3 on AWS, I switched over to Heroku. So thanks to Heroku for also making deployment of a Node.js app straightforward
+* Due to some issues with Scrypt/Web3 on AWS, I then switched over to Heroku. So thanks to Heroku for also making deployment of a Node.js app straightforward
 * Big thanks to the [MySportsFeed](https://www.mysportsfeeds.com/) team for providing a free/inexpensive API to obtain sports data
